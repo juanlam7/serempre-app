@@ -19,7 +19,6 @@ export class MainComponent implements OnInit {
   ngOnInit(): void {
     this.data = new Data;
     this.product = this.data.allData[0]
-    console.log(this.data)
 
     this.screenWidth = window.innerWidth;
     this.screenHeight = window.innerHeight;
