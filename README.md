@@ -1,3 +1,7 @@
+#Mi experiencia
+
+Lo más interesante me pareció el scroll en una sola parte de la página, no fue complicado lo pude resolver usando bootstrap como librería de estilos para el front end. Al mismo tiempo cree un pequeño JSON simulando el consumo de datos desde una API para asi hacer un uso de buenas practicas y evitar el hard code. Utilice directivas básicas de angular como ngIf, ngFor, ngStyle, ngClass; data binding, uso de decoradores para compartir información entre componentes y también para detectar el cambio de tamaños en la pantalla cada vez que está varia; esto me ayudo para el scroll.
+
 # SerempreApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.1.
