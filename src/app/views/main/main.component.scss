@@ -2,6 +2,11 @@
     p, h3{
         color: grey;
     }
+    .spinner-button{
+        font-size: 40px;
+        background: #00aae4; 
+        color: white;
+    }
 }
 
 
@@ -27,4 +32,8 @@
 .det1{
     border-radius: 15px;
     border: 2px solid #00aae4;
+}
+.det2{
+    border-radius: 15px;
+    border: 2px solid black;
 }

@@ -1,12 +1,12 @@
 <div class="container">
-    <app-header></app-header>
+    <app-header *ngIf="loading"></app-header>
 
-  <div class="row">
+  <div class="row" *ngIf="loading">
 
     <div class="col-md-12 col-lg-6">
 
         <div class="row">
-            <div class="col d-flex justify-content-center img-thumbnail select" style="margin: 5px;">
+            <div class="col d-flex justify-content-center img-thumbnail" style="margin: 5px;">
                 <img [src]='defaulImg' style="max-width: 60%; height: auto;" alt="...">
             </div>
         </div>
@@ -14,13 +14,13 @@
         <br>
 
         <div class="row">
-            <div class="col d-flex justify-content-center img-thumbnail" [ngClass]="{ 'det1': defaulImg === './../../../assets/Sennheiser1.png' }" style="margin: 5px;" (click)="changePic('./../../../assets/Sennheiser1.png')">
+            <div class="col d-flex justify-content-center img-thumbnail" [ngClass]="{ 'det2': defaulImg === './../../../assets/Sennheiser1.png' }" style="margin: 5px;" (click)="changePic('./../../../assets/Sennheiser1.png')">
                 <img src="./../../../assets/Sennheiser2.png" style="max-width: 60%; height: auto;" alt="...">
             </div>
-            <div class="col d-flex justify-content-center img-thumbnail" [ngClass]="{ 'det1': defaulImg === './../../../assets/Sennheiser3.png' }"  style="margin: 5px;" (click)="changePic('./../../../assets/Sennheiser3.png')">
+            <div class="col d-flex justify-content-center img-thumbnail" [ngClass]="{ 'det2': defaulImg === './../../../assets/Sennheiser3.png' }"  style="margin: 5px;" (click)="changePic('./../../../assets/Sennheiser3.png')">
                 <img src="./../../../assets/Sennheiser3.png" style="max-width: 60%; height: auto;" alt="...">
             </div>
-            <div class="col d-flex justify-content-center img-thumbnail" [ngClass]="{ 'det1': defaulImg === './../../../assets/Sennheiser4.png' }"  style="margin: 5px;" (click)="changePic('./../../../assets/Sennheiser4.png')">
+            <div class="col d-flex justify-content-center img-thumbnail" [ngClass]="{ 'det2': defaulImg === './../../../assets/Sennheiser4.png' }"  style="margin: 5px;" (click)="changePic('./../../../assets/Sennheiser4.png')">
                 <img src="./../../../assets/Sennheiser4.png" style="max-width: 60%; height: auto;" alt="...">
             </div>
         </div>
@@ -182,5 +182,36 @@
 
   </div>
 
-  <app-footer [itemPrice]="product.price"></app-footer>
+  <div class="row" *ngIf="!loading">
+    <div class="col d-flex align-items-center justify-content-center" style="min-height: 550px;">
+        <div class="row">
+            <div class="col-12">
+                <div class="text-center" >
+                    <div class="spinner-grow text-primary" role="status">
+                    </div>
+                    <div class="spinner-grow text-secondary" role="status">
+                    </div>
+                    <div class="spinner-grow text-success" role="status">
+                    </div>
+                    <div class="spinner-grow text-light" role="status">
+                    </div>
+                    <div class="spinner-grow text-danger" role="status">
+                    </div>
+                    <div class="spinner-grow text-warning" role="status">
+                    </div>
+                    <div class="spinner-grow text-info" role="status">
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 p-5">
+                <div class="text-center" >
+                    <p>Iniciando...</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+  </div>
+
+  <app-footer *ngIf="loading" [itemPrice]="product.price"></app-footer>
 </div>

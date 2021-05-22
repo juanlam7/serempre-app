@@ -11,6 +11,8 @@ export class MainComponent implements OnInit {
   public screenWidth: any;
   public screenHeight: any;
 
+  loading: boolean = false;
+
   defaulImg: any;
   defaulDetail: any;
 
@@ -21,7 +23,11 @@ export class MainComponent implements OnInit {
 
   ngOnInit(): void {
     this.data = new Data;
-    this.product = this.data.allData[0]
+    this.product = this.data.allData[0];
+
+    setTimeout(() => {
+      this.loading = true;
+    }, 4000);
 
     this.screenWidth = window.innerWidth;
     this.screenHeight = window.innerHeight;
