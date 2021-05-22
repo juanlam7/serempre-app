@@ -6,21 +6,21 @@
     <div class="col-md-12 col-lg-6">
 
         <div class="row">
-            <div class="col d-flex justify-content-center img-thumbnail" style="margin: 5px; border-radius: 15px;">
-                <img src="./../../../assets/Sennheiser1.png" style="max-width: 60%; height: auto;" alt="...">
+            <div class="col d-flex justify-content-center img-thumbnail select" style="margin: 5px;">
+                <img [src]='defaulImg' style="max-width: 60%; height: auto;" alt="...">
             </div>
         </div>
 
         <br>
 
         <div class="row">
-            <div class="col d-flex justify-content-center img-thumbnail" style="margin: 5px; border-radius: 15px;">
+            <div class="col d-flex justify-content-center img-thumbnail" [ngClass]="{ 'det1': defaulImg === './../../../assets/Sennheiser1.png' }" style="margin: 5px;" (click)="changePic('./../../../assets/Sennheiser1.png')">
                 <img src="./../../../assets/Sennheiser2.png" style="max-width: 60%; height: auto;" alt="...">
             </div>
-            <div class="col d-flex justify-content-center img-thumbnail" style="margin: 5px; border-radius: 15px;">
+            <div class="col d-flex justify-content-center img-thumbnail" [ngClass]="{ 'det1': defaulImg === './../../../assets/Sennheiser3.png' }"  style="margin: 5px;" (click)="changePic('./../../../assets/Sennheiser3.png')">
                 <img src="./../../../assets/Sennheiser3.png" style="max-width: 60%; height: auto;" alt="...">
             </div>
-            <div class="col d-flex justify-content-center img-thumbnail" style="margin: 5px; border-radius: 15px;">
+            <div class="col d-flex justify-content-center img-thumbnail" [ngClass]="{ 'det1': defaulImg === './../../../assets/Sennheiser4.png' }"  style="margin: 5px;" (click)="changePic('./../../../assets/Sennheiser4.png')">
                 <img src="./../../../assets/Sennheiser4.png" style="max-width: 60%; height: auto;" alt="...">
             </div>
         </div>
@@ -81,9 +81,9 @@
 
         <div class="row">
             <div class="col">
-                <h5> NEW RELEASE </h5>
+                <h6 style="color: red;"> NEW RELEASE </h6>
                 <h1> {{product.titulo}} </h1>
-                <h2> {{product.subtitulo}} </h2>
+                <h3> {{product.subtitulo}} </h3>
             </div>
         </div>
 
@@ -91,7 +91,7 @@
 
         <div class="row">
             <div class="col">
-                <h4>STARTING AT</h4>
+                <h6>STARTING AT</h6>
                 <h2>{{product.price}}</h2>
             </div>
         </div>
@@ -99,19 +99,13 @@
         <br>
 
         <div class="row">
-            <div class="col">
-                Overview
+            <div *ngFor="let item of product.details" (click)="changeDet(item.descripcion)" class="col" [ngClass]="{ 'under': item.diff , 'under-dea': !item.diff }">
+                <h6>{{ item.titulo }}</h6>
             </div>
-            <div class="col">
-                Features
-            </div>
-            <div class="col">
-                What's in the box?
-            </div>
-        </div>
+        </div>  
         <div class="row">
             <div class="col">
-                <p>{{product.overview}}</p>
+                <p>{{defaulDetail}}</p>
             </div>
         </div>
 
@@ -125,7 +119,7 @@
 
         <div class="row">
             <div *ngFor="let item of product.types" class="col">
-                <div class="card" style="padding: 20px; border-radius: 15px;">
+                <div class="card" (click)="changeDet1(item.descripcion)" [ngClass]="{ 'det1': item.diff , 'select': !item.diff }" style="padding: 20px;">
                     <h6>{{ item.titulo }}</h6>
                     <p>{{ item.descripcion }}</p>
                 </div>
@@ -142,7 +136,7 @@
 
         <div class="row">
             <div *ngFor="let item of product.warranty">
-                <div class="col card" style="padding: 20px; margin: 5px; border-radius: 15px;">
+                <div class="col card" (click)="changeDet2(item.descripcion)" [ngClass]="{ 'det1': item.diff , 'select': !item.diff }" style="padding: 20px; margin: 5px;">
                     <h6>{{ item.titulo }}</h6>
                     <p>
                         <span style="float: left;">{{item.descripcion}}</span>
@@ -162,7 +156,7 @@
 
         <div class="row">
             <div *ngFor="let item of product.features">
-                <div class="col card" style="padding: 10px; margin: 5px; border-radius: 15px;">
+                <div class="col card" (click)="changeDet3(item.titulo)" [ngClass]="{ 'det1': item.diff , 'select': !item.diff }" style="padding: 10px; margin: 5px;">
                     <h6>
                         <span style="float: left;">{{item.titulo}}</span>
                         <span style="float: right;">{{item.cost}}</span>

@@ -1,0 +1,30 @@
+.container{
+    p, h3{
+        color: grey;
+    }
+}
+
+
+.select{
+    border-radius: 15px;
+    border: 1px solid rgb(238, 238, 238);
+}
+.select:active{
+    border: 2px solid #00aae4;
+}
+.select:focus{
+    border: 2px solid #00aae4;
+}
+
+.under{
+    font-weight: bold;
+    text-decoration: underline;
+}
+.under-dea{
+    color: grey;
+}
+
+.det1{
+    border-radius: 15px;
+    border: 2px solid #00aae4;
+}
