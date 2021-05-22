@@ -96,6 +96,6 @@ export class MainComponent implements OnInit {
 
 
   calculateStyles() {
-    return { 'max-width': 'auto', 'max-height': `${this.screenHeight}px` };
+    return { 'max-width': 'auto', 'max-height': `${this.screenHeight-300}px` };
   }
 }
